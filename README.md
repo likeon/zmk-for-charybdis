@@ -1,4 +1,4 @@
-# ZMK Config for Charybdis
+# ZMK Config for Charybdis (RGB)
 
 ![ZMK Build](https://img.shields.io/github/actions/workflow/status/HeeTuic/zmk-for-charybdis/build.yml?label=ZMK%20Build&style=for-the-badge&color=2ac3de)
 ![Keymap Draw](https://img.shields.io/github/actions/workflow/status/HeeTuic/zmk-for-charybdis/draw-keymaps.yml?label=Keymap%20Draw&style=for-the-badge&color=bb9af7)
