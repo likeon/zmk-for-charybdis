@@ -1,9 +1,9 @@
-# ZMK Config for Charybdis
+# ZMK Config for Charybdis (Left Trackball)
 
 ![ZMK Build](https://img.shields.io/github/actions/workflow/status/HeeTuic/zmk-for-charybdis/build.yml?label=ZMK%20Build&style=for-the-badge&color=2ac3de)
 ![Keymap Draw](https://img.shields.io/github/actions/workflow/status/HeeTuic/zmk-for-charybdis/draw-keymaps.yml?label=Keymap%20Draw&style=for-the-badge&color=bb9af7)
 
-This repository provides an out-of-the-box ZMK configuration tailored for the **"MiaoMiao" custom wireless Charybdis** split trackball keyboard. It natively supports real-time keymap editing via ZMK Studio, optimizes wireless connectivity and power consumption, and maintains full backward compatibility with the official soldered version.
+This repository provides an out-of-the-box ZMK configuration tailored for the "MiaoMiao" custom wireless Charybdis split trackball keyboard. It natively supports real-time keymap editing via ZMK Studio, optimizes wireless connectivity and power consumption, and maintains full backward compatibility with the official soldered version. Please note that this branch is specifically made for the left-hand trackball variant.
 
 ---
 
