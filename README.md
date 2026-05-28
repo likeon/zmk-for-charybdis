@@ -1,7 +1,8 @@
 # ZMK Config for Charybdis
 
 ![ZMK Build](https://img.shields.io/github/actions/workflow/status/HeeTuic/zmk-for-charybdis/build.yml?l?branch=46_Charybdis&label=ZMK%20Build&style=for-the-badge&color=2ac3de)
-![Keymap Draw](https://img.shields.io/github/actions/workflow/status/HeeTuic/zmk-for-charybdis/draw-keymaps.yml?label=Keymap%20Draw&style=for-the-badge&color=bb9af7)
+![Keymap Draw](https://img.shields.io/github/actions/workflow/status/HeeTuic/zmk-for-charybdis/draw-keymaps.yml?label=Keymap%20Draw&style=for-the-badge&color=bb9af7)  &nbsp;&nbsp;&nbsp;&nbsp; [![English](https://img.shields.io/badge/%F0%9F%8C%90%20Language-English-1b4c7e?style=for-the-badge)](README.md)[![简体中文](https://img.shields.io/badge/-%20%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-2e6b5e?style=for-the-badge)](README_ZH.md)
+
 
 This repository provides an out-of-the-box ZMK configuration tailored for the **"MiaoMiao" custom wireless Charybdis** split trackball keyboard. It natively supports real-time keymap editing via ZMK Studio, optimizes wireless connectivity and power consumption, and maintains full backward compatibility with the official soldered version.
 
