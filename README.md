@@ -25,7 +25,7 @@ Modify your keymap on the fly without re-flashing, leveraging the official ZMK S
 
 ### 2. Keymap Editor (Online Full Compilation)
 The most mature visual web editor in the community, deeply integrated with your GitHub workflow. It is ideal for comprehensive overhauls of your keyboard layout architecture.
-- **How to Use**: Fork this repository and run the initial firmware compilation under the GitHub Actions tab. Then, log into [Keymap Editor](https://nickcoutsos.github.io/keymap-editor/), authorize access, and select your `zmk-for-charybdis` repository.
+- **How to Use**: [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository) this repository and run the initial firmware compilation under the [GitHub Actions](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/disabling-and-enabling-a-workflow#enabling-a-workflow)  tab. Then, log into [Keymap Editor](https://nickcoutsos.github.io/keymap-editor/), authorize access, and select your `zmk-for-charybdis` repository.
 - **Core Advantage**: **All-inclusive Editing**. Drag and drop to modify keymaps in an intuitive graphical interface with full support for Combos, Macros, and advanced ZMK Behaviors. Saving your changes automatically commits the code to GitHub and triggers a cloud build.
 
 ---
