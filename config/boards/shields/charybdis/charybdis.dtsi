@@ -9,7 +9,7 @@
         kscan = <&kscan0>;
         transform = <&matrix_transform0>;
 
-		 keys
+		 keys  //                       w   h    x    y     rot   rx   ry
             = <&key_physical_attrs 100 100    0   75       0     0     0>
             , <&key_physical_attrs 100 100  100   75       0     0     0>
             , <&key_physical_attrs 100 100  200   25       0     0     0>
