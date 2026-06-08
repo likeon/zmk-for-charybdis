@@ -27,7 +27,7 @@
                                  &kp LEFT_WIN  &kp SPACE     &lt 1 ENTER     &lt 2 ENTER  &kp RIGHT_ALT
                                                &kp LEFT_ALT  &kp CAPSLOCK    &kp DELETE
             >;
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&msc SCRL_UP &msc SCRL_DOWN>;
         };
 
         Lower {
@@ -39,7 +39,7 @@
                                           &kp LEFT_WIN  &kp SPACE     &trans         &kp ENTER      &kp RIGHT_ALT
                                                         &none         &none          &none
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
+            sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
         };
 
         Raise {
@@ -51,7 +51,7 @@
                                        &kp LEFT_WIN   &kp SPACE      &kp ENTER       &trans             &kp RIGHT_ALT
                                                       &none          &none           &none
             >;
-sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
+            sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
         };
 
         Mouse {
@@ -63,7 +63,7 @@ sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
                                          &none         &mkp LCLK  &mkp RCLK     &mkp RCLK       &mkp LCLK
                                                        &none      &none         &none
             >;
-sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         Scroll {
@@ -75,7 +75,7 @@ sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
                                          &none         &mkp LCLK  &mkp RCLK     &mkp RCLK   &mkp LCLK
                                                        &none      &none         &none
             >;
-sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };
