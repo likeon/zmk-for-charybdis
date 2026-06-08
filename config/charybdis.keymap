@@ -15,15 +15,6 @@
 / {
     combos { compatible = "zmk,combos"; };
 
-behaviors {
-        scroll_encoder: scroll_encoder {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            // 直接发送鼠标滚动指令，去掉 tap-ms
-            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -48,7 +39,7 @@ behaviors {
                                           &kp LEFT_WIN  &kp SPACE     &trans         &kp ENTER      &kp RIGHT_ALT
                                                         &none         &none          &none
             >;
-            sensor-bindings = <&scroll_encoder>;
+        sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
         };
 
         Raise {
@@ -60,7 +51,6 @@ behaviors {
                                        &kp LEFT_WIN   &kp SPACE      &kp ENTER       &trans             &kp RIGHT_ALT
                                                       &none          &none           &none
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
         };
 
         Mouse {
@@ -84,7 +74,6 @@ behaviors {
                                          &none         &mkp LCLK  &mkp RCLK     &mkp RCLK   &mkp LCLK
                                                        &none      &none         &none
             >;
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };
