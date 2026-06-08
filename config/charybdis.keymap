@@ -15,20 +15,6 @@
 / {
     combos { compatible = "zmk,combos"; };
 
-    scroll_vertical_encoder: scroll_vertical_encoder {
-        compatible = "zmk,behavior-sensor-rotate";
-        #sensor-binding-cells = <0>;
-        bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-        tap-ms = <30>; 
-    };
-
-    scroll_horizontal_encoder: scroll_horizontal_encoder {
-        compatible = "zmk,behavior-sensor-rotate";
-        #sensor-binding-cells = <0>;
-        bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
-        tap-ms = <30>;
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -41,7 +27,7 @@
                                  &kp LEFT_WIN  &kp SPACE     &lt 1 ENTER     &lt 2 ENTER  &kp RIGHT_ALT
                                                &kp LEFT_ALT  &kp CAPSLOCK    &kp DELETE
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         Lower {
@@ -65,7 +51,7 @@
                                        &kp LEFT_WIN   &kp SPACE      &kp ENTER       &trans             &kp RIGHT_ALT
                                                       &none          &none           &none
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
+sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
         };
 
         Mouse {
@@ -77,7 +63,7 @@
                                          &none         &mkp LCLK  &mkp RCLK     &mkp RCLK       &mkp LCLK
                                                        &none      &none         &none
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
+sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
         };
 
         Scroll {
@@ -89,7 +75,7 @@
                                          &none         &mkp LCLK  &mkp RCLK     &mkp RCLK   &mkp LCLK
                                                        &none      &none         &none
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
+sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
         };
     };
 };
