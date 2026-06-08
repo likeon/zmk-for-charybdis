@@ -34,7 +34,7 @@
                                  &kp LEFT_WIN  &kp SPACE     &lt 1 ENTER     &lt 2 ENTER  &kp RIGHT_ALT
                                                &kp LEFT_ALT  &kp CAPSLOCK    &kp DELETE
             >;
-            sensor-bindings = <&scroll_encoder>, <&none>;
+            sensor-bindings = <&scroll_encoder>;
         };
 
         Lower {
@@ -87,11 +87,7 @@
     };
 };
 
-&mmv {
-        #sensor-binding-cells = <2>; 
-    };
-    
-&msc {
-        #sensor-binding-cells = <1>; 
-    };
-    
+&sensors {
+    sensors = <&left_encoder>;
+    triggers-per-rotation = <10>;
+};
