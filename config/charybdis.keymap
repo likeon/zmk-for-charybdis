@@ -20,13 +20,6 @@
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
         tap-ms = <100>;
-    };
-
-    none_sensor: none_sensor {
-        compatible = "zmk,behavior-none";
-        #sensor-binding-cells = <0>;
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -39,7 +32,7 @@
                                  &kp LEFT_WIN  &kp SPACE     &lt 1 ENTER     &lt 2 ENTER  &kp RIGHT_ALT
                                                &kp LEFT_ALT  &kp CAPSLOCK    &kp DELETE
             >;
-            sensor-bindings = <&scroll_encoder>, <&none_sensor>;
+            sensor-bindings = <&scroll_encoder>;
         };
 
         Lower {
@@ -51,7 +44,7 @@
                                           &kp LEFT_WIN  &kp SPACE     &trans         &kp ENTER      &kp RIGHT_ALT
                                                         &none         &none          &none
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>, <&none_sensor>;
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
         };
 
         Raise {
@@ -63,7 +56,7 @@
                                        &kp LEFT_WIN   &kp SPACE      &kp ENTER       &trans             &kp RIGHT_ALT
                                                       &none          &none           &none
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>, <&none_sensor>;
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
         };
 
         Mouse {
@@ -75,7 +68,7 @@
                                          &none         &mkp LCLK  &mkp RCLK     &mkp RCLK       &mkp LCLK
                                                        &none      &none         &none
             >;
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&none_sensor>;
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         Scroll {
@@ -87,9 +80,17 @@
                                          &none         &mkp LCLK  &mkp RCLK     &mkp RCLK   &mkp LCLK
                                                        &none      &none         &none
             >;
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&none_sensor>;
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };
 
+&left_encoder {
+    status = "okay";
+};
 
+&sensors {
+    compatible = "zmk,keymap-sensors";
+    sensors = <&left_encoder>;
+    triggers-per-rotation = <10>;
+};
