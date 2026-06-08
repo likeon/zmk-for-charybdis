@@ -14,7 +14,14 @@
 
 / {
     combos { compatible = "zmk,combos"; };
-
+    &mmv {
+        #sensor-binding-cells = <2>; 
+    };
+    
+    &msc {
+        #sensor-binding-cells = <1>; 
+    };
+    
     keymap {
         compatible = "zmk,keymap";
 
@@ -27,7 +34,7 @@
                                  &kp LEFT_WIN  &kp SPACE     &lt 1 ENTER     &lt 2 ENTER  &kp RIGHT_ALT
                                                &kp LEFT_ALT  &kp CAPSLOCK    &kp DELETE
             >;
-            sensor-bindings = <&mmv MOVE_UP &mmv MOVE_DOWN>;
+            sensor-bindings = <&msc SCRL_UP &msc SCRL_DOWN>;
         };
 
         Lower {
