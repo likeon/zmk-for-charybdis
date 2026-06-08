@@ -14,14 +14,7 @@
 
 / {
     combos { compatible = "zmk,combos"; };
-    &mmv {
-        #sensor-binding-cells = <2>; 
-    };
-    
-    &msc {
-        #sensor-binding-cells = <1>; 
-    };
-    
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -86,3 +79,12 @@
         };
     };
 };
+
+&mmv {
+        #sensor-binding-cells = <2>; 
+    };
+    
+&msc {
+        #sensor-binding-cells = <1>; 
+    };
+    
