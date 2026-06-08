@@ -27,7 +27,7 @@
                                  &kp LEFT_WIN  &kp SPACE     &lt 1 ENTER     &lt 2 ENTER  &kp RIGHT_ALT
                                                &kp LEFT_ALT  &kp CAPSLOCK    &kp DELETE
             >;
-            sensor-bindings = <&msc SCRL_UP &msc SCRL_DOWN>;
+            sensor-bindings = <&mmv MOVE_UP &mmv MOVE_DOWN>;
         };
 
         Lower {
