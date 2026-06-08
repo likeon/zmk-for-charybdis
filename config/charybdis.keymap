@@ -34,7 +34,7 @@
                                  &kp LEFT_WIN  &kp SPACE     &lt 1 ENTER     &lt 2 ENTER  &kp RIGHT_ALT
                                                &kp LEFT_ALT  &kp CAPSLOCK    &kp DELETE
             >;
-            sensor-bindings = <&scroll_encoder>;
+            sensor-bindings = <&scroll_encoder>, <&none>;
         };
 
         Lower {
