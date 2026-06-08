@@ -19,6 +19,17 @@
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+    };
+
+    none_sensor: none_sensor {
+        compatible = "zmk,behavior-none";
+        #sensor-binding-cells = <0>;
+    };
+
+    scroll_encoder: scroll_encoder {
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
         tap-ms = <100>;
     };
 
@@ -34,7 +45,7 @@
                                  &kp LEFT_WIN  &kp SPACE     &lt 1 ENTER     &lt 2 ENTER  &kp RIGHT_ALT
                                                &kp LEFT_ALT  &kp CAPSLOCK    &kp DELETE
             >;
-            sensor-bindings = <&scroll_encoder>;
+            sensor-bindings = <&scroll_encoder>, <&none_sensor>;
         };
 
         Lower {
@@ -46,7 +57,7 @@
                                           &kp LEFT_WIN  &kp SPACE     &trans         &kp ENTER      &kp RIGHT_ALT
                                                         &none         &none          &none
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>, <&none_sensor>;
         };
 
         Raise {
@@ -58,7 +69,7 @@
                                        &kp LEFT_WIN   &kp SPACE      &kp ENTER       &trans             &kp RIGHT_ALT
                                                       &none          &none           &none
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>, <&none_sensor>;
         };
 
         Mouse {
@@ -70,7 +81,7 @@
                                          &none         &mkp LCLK  &mkp RCLK     &mkp RCLK       &mkp LCLK
                                                        &none      &none         &none
             >;
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&none_sensor>;
         };
 
         Scroll {
@@ -82,12 +93,9 @@
                                          &none         &mkp LCLK  &mkp RCLK     &mkp RCLK   &mkp LCLK
                                                        &none      &none         &none
             >;
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&none_sensor>;
         };
     };
 };
 
-&sensors {
-    sensors = <&left_encoder>;
-    triggers-per-rotation = <10>;
-};
+
