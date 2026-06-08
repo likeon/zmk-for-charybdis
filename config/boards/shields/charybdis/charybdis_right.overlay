@@ -21,7 +21,9 @@
 		;
 };
 
-
+&left_encoder {
+    status = "disabled";
+};
 
 // trackball bus
 &pinctrl {
