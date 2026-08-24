@@ -355,12 +355,12 @@ path.combo {
 </a></g>
 <g transform="translate(420, 252)" class="key keypos-51">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Space</text>
-<text x="0" y="24" class="key hold">Shift</text>
+<text x="0" y="0" class="key tap">BSPC</text>
 </g>
 <g transform="translate(476, 252)" class="key keypos-52">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">BSPC</text>
+<text x="0" y="0" class="key tap">Space</text>
+<text x="0" y="24" class="key hold">Shift</text>
 </g>
 <g transform="translate(252, 308)" class="key keypos-53">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>

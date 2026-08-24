@@ -52,8 +52,8 @@ layers:
   - '&mkp RCLK'
   - {t: Enter, h: Cmd}
   - Function
-  - {t: Space, h: Shift}
   - BSPC
+  - {t: Space, h: Shift}
   - {t: Tab, h: Function}
   - '&mkp LCLK'
   - {t: Space, h: Shift}
