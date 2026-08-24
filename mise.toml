@@ -1,0 +1,148 @@
+[tasks.build]
+description = "Build all firmware targets into tmp/firmware"
+run = '''
+#!/usr/bin/env bash
+set -euo pipefail
+
+root="$(git rev-parse --show-toplevel)"
+tmp_dir="$root/tmp"
+workspace_dir="$tmp_dir/zmk-workspace"
+build_dir="$tmp_dir/firmware"
+container_home="$tmp_dir/container-home"
+cache_dir="$tmp_dir/cache"
+ccache_dir="$tmp_dir/ccache"
+image="docker.io/zmkfirmware/zmk-build-arm:stable"
+mkdir -p "$workspace_dir" "$build_dir" "$container_home" "$cache_dir" "$ccache_dir"
+
+# Preserve source timestamps so unchanged config does not invalidate Ninja cache.
+rm -rf "$workspace_dir/config"
+cp -a "$root/config" "$workspace_dir/config"
+
+if command -v podman >/dev/null 2>&1; then
+  engine="podman"
+  engine_args=(--userns=keep-id)
+elif command -v docker >/dev/null 2>&1; then
+  engine="docker"
+  engine_args=(--user "$(id -u):$(id -g)")
+else
+  printf 'Podman or Docker is required to build firmware.\n' >&2
+  exit 1
+fi
+
+"$engine" run --rm --interactive \
+  "${engine_args[@]}" \
+  --env HOME=/work/container-home \
+  --env XDG_CACHE_HOME=/work/cache \
+  --env CCACHE_DIR=/work/ccache \
+  --volume "$tmp_dir:/work:Z" \
+  --workdir /work/zmk-workspace \
+  "$image" \
+  bash -s <<'BUILD_SCRIPT'
+set -euo pipefail
+
+manifest_hash="$(sha256sum config/west.yml | cut -d ' ' -f 1)"
+manifest_stamp=".west/zmk-config-manifest.sha256"
+update_workspace=false
+
+if [[ ! -d .west ]]; then
+  west init -l config
+  update_workspace=true
+elif [[ ! -f "$manifest_stamp" ]] || [[ "$(cat "$manifest_stamp")" != "$manifest_hash" ]]; then
+  update_workspace=true
+fi
+
+if [[ "$update_workspace" == true ]]; then
+  west update --fetch-opt=--filter=tree:0
+  west zephyr-export
+  printf '%s\n' "$manifest_hash" > "$manifest_stamp"
+fi
+
+build_target() {
+  local name="$1"
+  local shield="$2"
+  local west_args=()
+  local cmake_args=()
+
+  if [[ "$name" == "charybdis_right" ]]; then
+    west_args=(-S studio-rpc-usb-uart)
+    cmake_args=(-DCONFIG_ZMK_STUDIO=y)
+  fi
+
+  local target_dir="/work/firmware/$name"
+
+  if [[ -f "$target_dir/build.ninja" ]]; then
+    west build -d "$target_dir"
+  else
+    west build \
+      -s /work/zmk-workspace/zmk/app \
+      -d "$target_dir" \
+      -b nice_nano_v2 \
+      "${west_args[@]}" \
+      -- \
+      "-DSHIELD=$shield" \
+      -DZMK_CONFIG=/work/zmk-workspace/config \
+      "${cmake_args[@]}"
+  fi
+
+  cp "$target_dir/zephyr/zmk.uf2" "/work/firmware/$name.uf2"
+}
+
+build_target charybdis_left charybdis_left
+build_target charybdis_right charybdis_right
+build_target settings_reset settings_reset
+BUILD_SCRIPT
+
+printf 'Firmware written to %s\n' "$build_dir"
+'''
+
+[tasks.flash]
+description = "Wait for nice!nano bootloader and flash one keyboard half"
+usage = '''
+arg "<side>" help="Keyboard half to flash" {
+  choices "left" "right"
+}
+'''
+run = '''
+#!/usr/bin/env bash
+set -euo pipefail
+
+root="$(git rev-parse --show-toplevel)"
+side="${usage_side:?Choose left or right}"
+firmware="$root/tmp/firmware/charybdis_$side.uf2"
+current_user="${USER:-$(id -un)}"
+
+if [[ ! -f "$firmware" ]]; then
+  printf 'Firmware not found: %s\nRun `mise run build` first.\n' "$firmware" >&2
+  exit 1
+fi
+
+find_bootloader() {
+  local candidate
+  for candidate in \
+    "/run/media/$current_user/NICENANO" \
+    "/media/$current_user/NICENANO" \
+    "/Volumes/NICENANO"
+  do
+    if [[ -d "$candidate" ]]; then
+      printf '%s\n' "$candidate"
+      return 0
+    fi
+  done
+
+  if command -v findmnt >/dev/null 2>&1; then
+    findmnt -rn -S LABEL=NICENANO -o TARGET 2>/dev/null | head -n 1
+  fi
+}
+
+printf 'Waiting for NICENANO bootloader'
+mount_point=""
+while [[ -z "$mount_point" ]]; do
+  printf '.'
+  sleep 1
+  mount_point="$(find_bootloader || true)"
+done
+printf '\nFlashing %s firmware to %s\n' "$side" "$mount_point"
+
+cp "$firmware" "$mount_point/"
+printf 'Flash complete.\n'
+'''
