@@ -49,13 +49,13 @@ layers:
   - .
   - /
   - CAPSLOCK
-  - '&mkp RCLK'
-  - {t: Enter, h: Cmd}
   - Function
+  - '&mkp LCLK'
+  - '&mkp RCLK'
   - BSPC
   - {t: Space, h: Shift}
+  - {t: Enter, h: Cmd}
   - {t: Tab, h: Function}
-  - '&mkp LCLK'
   - {t: Space, h: Russian}
   Function:
   - ESC
@@ -106,9 +106,9 @@ layers:
   - KP MULTIPLY
   - KP MULTIPLY
   - KP MULTIPLY
-  - {t: ▽, type: trans}
-  - ''
   - {type: held}
+  - ''
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - DEL
   - {t: ▽, type: trans}
