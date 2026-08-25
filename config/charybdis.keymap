@@ -66,7 +66,7 @@
 &kp LSHIFT   &lt SYMBOLS A   &mt LSHIFT S    &mt LCTRL D   &mt LALT F      &kp G                &kp H           &mt RALT J          &mt RCTRL K         &mt RSHIFT L    &quote_lt SYMBOLS 0  &tog GAMING
 &kp LCTRL    &kp Z           &kp X           &kp C         &lt NUMBERS V   &kp B                &kp N           &lt NUMBERS M       &kp COMMA          &kp DOT         &kp SLASH          &kp CAPSLOCK
                                                     &mkp RCLK       &mt LGUI ENTER   &mo FUNCTION     &kp BACKSPACE     &mt LSHIFT SPACE
-                                                                    &lt FUNCTION TAB &mkp LCLK        &mt LSHIFT SPACE
+                                                                    &lt FUNCTION TAB &mkp LCLK        &lt RUSSIAN SPACE
             >;
         };
 
