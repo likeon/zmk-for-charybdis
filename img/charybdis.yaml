@@ -50,11 +50,11 @@ layers:
   - /
   - CAPSLOCK
   - Function
-  - '&mkp LCLK'
+  - {t: Enter, h: Cmd}
   - '&mkp RCLK'
   - BSPC
   - {t: Space, h: Shift}
-  - {t: Enter, h: Cmd}
+  - '&mkp LCLK'
   - {t: Tab, h: Function}
   - {t: Space, h: Russian}
   Function:
