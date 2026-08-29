@@ -138,7 +138,7 @@
 &trans  &trans    &trans    &trans  &trans  &trans    &trans  &trans    &trans  &trans    &trans  &trans
 &trans  &trans    &trans    &trans  &trans  &trans    &trans  &trans    &trans  &trans    &trans  &trans
 &trans  &trans    &trans    &trans  &trans  &trans    &trans  &trans    &trans  &kp SEMI  &trans  &trans
-&trans  &trans    &kp LBKT  &trans  &trans  &trans    &trans  &kp RBKT  &trans  &trans    &trans  &trans
+&trans  &trans    &kp LBKT  &trans  &trans  &trans    &trans  &kp RBKT  &trans  &trans    &kp LS(N7)  &trans
                                 &trans  &trans  &trans  &trans  &trans
                                         &trans  &trans  &trans
             >;
